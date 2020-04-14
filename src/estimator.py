@@ -12,9 +12,9 @@ def get_period_days(period_type, period_days):
 
 
 def estimator(input_data):
-    num_of_days = get_period_days(input_data.get('data').get('periodType'), input_data.get('data').get('timeToElapse'))
+    num_of_days = get_period_days(input_data.get('periodType'), input_data.get('timeToElapse'))
     num_of_days = int(num_of_days / 3)
-    reportedCases = int(input_data.get('data').get('reportedCases'))
+    reportedCases = int(input_data.get('reportedCases'))
     output_data = {}
     impact = {}
     severe_impact = {}
@@ -28,7 +28,7 @@ def estimator(input_data):
     impact['infectionsByRequestedTime'] = infections_by_requested_time_impact
     severe_impact['currentlyInfected'] = currently_infected_severe_impact
     severe_impact['infectionsByRequestedTime'] = infections_by_requested_time_severe_impact
-    
+
     output_data['data'] = input_data
     output_data['impact'] = impact
     output_data['severe_impact'] = severe_impact
