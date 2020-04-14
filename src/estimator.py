@@ -34,14 +34,14 @@ def estimator(input_data):
     severe_cases_by_req_time_severe_impact = int((0.15 * infections_by_requested_time_severe_impact))
     hospital_beds_by_requested_time_severe_impact =  int((available_beds(total_hospital_beds) - severe_cases_by_req_time_severe_impact))
     
-    impact['currentlyInfected'] = float(currently_infected_impact)
-    impact['infectionsByRequestedTime'] = float(infections_by_requested_time_impact)
-    impact['severeCasesByRequestedTime'] = float(severe_cases_by_req_time_impact)
-    impact['hospitalBedsByRequestedTime'] = float(hospital_beds_by_requested_time_impact)
-    severe_impact['currentlyInfected'] =  float(currently_infected_severe_impact)
-    severe_impact['infectionsByRequestedTime'] = float(infections_by_requested_time_severe_impact)
-    severe_impact['severeCasesByRequestedTime'] = float(severe_cases_by_req_time_severe_impact)
-    severe_impact['hospitalBedsByRequestedTime'] = float(hospital_beds_by_requested_time_severe_impact)
+    impact['currentlyInfected'] = (currently_infected_impact)
+    impact['infectionsByRequestedTime'] = (infections_by_requested_time_impact)
+    impact['severeCasesByRequestedTime'] = (severe_cases_by_req_time_impact)
+    impact['hospitalBedsByRequestedTime'] = (hospital_beds_by_requested_time_impact)
+    severe_impact['currentlyInfected'] =  (currently_infected_severe_impact)
+    severe_impact['infectionsByRequestedTime'] = (infections_by_requested_time_severe_impact)
+    severe_impact['severeCasesByRequestedTime'] = (severe_cases_by_req_time_severe_impact)
+    severe_impact['hospitalBedsByRequestedTime'] = (hospital_beds_by_requested_time_severe_impact)
 
     output_data['data'] = input_data
     output_data['impact'] = impact
