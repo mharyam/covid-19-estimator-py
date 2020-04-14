@@ -12,7 +12,7 @@ def get_period_days(period_type, period_days):
 
 
 def available_beds(total_hospital_beds):
-    return int(0.35 * (total_hospital_beds))
+    return (0.35 * (total_hospital_beds))
 
 
 def estimator(input_data):
@@ -27,7 +27,9 @@ def estimator(input_data):
     currently_infected_impact = reportedCases * 10
     infections_by_requested_time_impact = int(currently_infected_impact * math.pow(2, num_of_days))
     severe_cases_by_req_time_impact = int(0.15 * infections_by_requested_time_impact)
-    hospital_beds_by_requested_time_impact = int((available_beds(total_hospital_beds) - severe_cases_by_req_time_impact))
+    print("availabe bed", available_beds(total_hospital_beds))
+    print("severe_cases_by_req_time_impact", severe_cases_by_req_time_impact)
+    hospital_beds_by_requested_time_impact = ((available_beds(total_hospital_beds) - severe_cases_by_req_time_impact))
 
     currently_infected_severe_impact = reportedCases * 50
     infections_by_requested_time_severe_impact = int(currently_infected_severe_impact * math.pow(2, num_of_days))
@@ -37,11 +39,11 @@ def estimator(input_data):
     impact['currentlyInfected'] = (currently_infected_impact)
     impact['infectionsByRequestedTime'] = (infections_by_requested_time_impact)
     impact['severeCasesByRequestedTime'] = (severe_cases_by_req_time_impact)
-    impact['hospitalBedsByRequestedTime'] = (hospital_beds_by_requested_time_impact)
+    impact['hospitalBedsByRequestedTime'] = int(hospital_beds_by_requested_time_impact)
     severe_impact['currentlyInfected'] =  (currently_infected_severe_impact)
     severe_impact['infectionsByRequestedTime'] = (infections_by_requested_time_severe_impact)
     severe_impact['severeCasesByRequestedTime'] = (severe_cases_by_req_time_severe_impact)
-    severe_impact['hospitalBedsByRequestedTime'] = (hospital_beds_by_requested_time_severe_impact)
+    severe_impact['hospitalBedsByRequestedTime'] = int(hospital_beds_by_requested_time_severe_impact)
 
     output_data['data'] = input_data
     output_data['impact'] = impact
