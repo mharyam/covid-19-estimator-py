@@ -31,5 +31,5 @@ def estimator(input_data):
 
     output_data['data'] = input_data
     output_data['impact'] = impact
-    output_data['severe_impact'] = severe_impact
+    output_data['severeImpact'] = severe_impact
     return output_data
