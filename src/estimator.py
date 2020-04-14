@@ -1,8 +1,5 @@
 import math
 
-def estimator(data):
-  return data
-
 
 def get_period_days(period_type, period_days):
     if period_type.lower() == 'days':
@@ -14,7 +11,7 @@ def get_period_days(period_type, period_days):
     return "Invalid Period Type"
 
 
-def impact_estimator(input_data):
+def estimator(input_data):
     num_of_days = get_period_days(input_data.get('data').get('periodType'), input_data.get('data').get('timeToElapse'))
     num_of_days = int(num_of_days / 3)
     reportedCases = int(input_data.get('data').get('reportedCases'))
@@ -31,8 +28,8 @@ def impact_estimator(input_data):
     impact['infectionsByRequestedTime'] = infections_by_requested_time_impact
     severe_impact['currentlyInfected'] = currently_infected_severe_impact
     severe_impact['infectionsByRequestedTime'] = infections_by_requested_time_severe_impact
-
-    output_data['estimate'] = {}
-    output_data['estimate'].update({"impact":impact})
-    output_data['estimate'].update({"severeImpact":severe_impact})
+    
+    output_data['data'] = input_data
+    output_data['impact'] = impact
+    output_data['severe_impact'] = severe_impact
     return output_data
