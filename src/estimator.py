@@ -32,8 +32,7 @@ def impact_estimator(input_data):
     severe_impact['currentlyInfected'] = currently_infected_severe_impact
     severe_impact['infectionsByRequestedTime'] = infections_by_requested_time_severe_impact
 
-    output_data['data'] = input_data
-    output_data['impact'] = impact
-    output_data['severe_impact'] = severe_impact
-
+    output_data['estimate'] = {}
+    output_data['estimate'].update({"impact":impact})
+    output_data['estimate'].update({"severeImpact":severe_impact})
     return output_data
