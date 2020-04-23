@@ -23,9 +23,6 @@ def estimator(input_data):
     avg_income = input_data.get("avgDailyIncomeInUSD",0)
     time_to_elapse = input_data.get("timeToElapse", 0)
     avg_daily_income_pop = input_data.get("avgDailyIncomePopulation", 0)
-    print("avgDailyIncomeInUSD", avg_income)
-    print("timeToElapse", time_to_elapse)
-    print("avg_daily_income_pop", avg_daily_income_pop)
     output_data = {}
     impact = {}
     severe_impact = {}
@@ -65,4 +62,5 @@ def estimator(input_data):
     output_data['data'] = input_data
     output_data['impact'] = impact
     output_data['severeImpact'] = severe_impact
+    #checking for test 3
     return output_data
